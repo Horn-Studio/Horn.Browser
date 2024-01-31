@@ -1,0 +1,54 @@
+body > div, body > span, iframe{display: none !important; visibility: hidden !important}
+
+ * { margin: 0; padding: 0px;}
+body { margin: 10px; }
+body > header { padding: 0 0 10px 0px; max-width: 640px; margin: auto; }
+body > header h1 { display: block; text-align: center; margin: 60px 15px 15px 15px; }
+
+footer { text-align: center; line-height: 100px; height: 100px;}
+
+#topbar { overflow: hidden; font-size: smaller; }
+#topbar #left { float: left; }
+#topbar #right { float: right; }
+
+textarea{width: calc(100% - 8px); height: 150px;border: none; padding: 4px;}
+textarea:focus { border: none; outline:none; }
+.txt0{height: 40px;line-height: 40px;}
+
+u{text-decoration: none;}
+
+a.btn{display: inline-block; line-height: 40px !important; height: 40px !important; width: 150px !important; padding: 0px !important; text-align: center;}
+
+section { max-width: 480px; margin: auto; padding-bottom: 10px;}
+
+section >header{text-align: center;}
+section >p{margin: 10px;}
+
+ul,ol{display: block; overflow: hidden; }
+
+ul {  border-bottom: 0px solid #f8f8f8; padding: 5px 0 5px 0; }
+ul li { display: inline-block; width: 25%; float: left; text-align: center; }
+ul li div { margin: 5px; padding: 10px 0px 10px 0px; border-radius: 4px; }
+
+ul li a { text-align: center; text-decoration: none; }
+ul li img { width: 26px; height: 26px; margin-bottom: 5px; }
+ul li label { display: block; font-size: small; overflow: hidden; height: 24px; line-height: 24px;}
+ul li b.img { display: inline-block; width: 26px; height: 26px; font-weight: normal; line-height: 26px; margin-bottom: 5px; border-radius: 13px; }
+
+#sys_tabs li:nth-child(n+5){display: none !important;}
+
+ol li{padding: 5px; overflow: hidden;margin-bottom: 15px;}
+ol li p {display: inline-block; float: left;}
+ol li p b{display: block; line-height: 24px;}
+ol li p i{font-size: smaller;}
+ol li a {display:inline-block; float: right; border-radius: 4px; text-align: center; text-decoration:none; margin: 6px 5px 6px 5px; width: 60px; height: 30px; line-height: 30px; }
+
+
+@media screen and (min-width: 720px) { 
+	body > header {max-width: 800px; }
+	section {max-width: 640px; }
+	ul li { width: 16.6%; }
+	#sys_tabs li:nth-child(n){display: block !important;}
+} 
+
+

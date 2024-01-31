@@ -1,0 +1,255 @@
+
+var H5EXP_JS_VER='28';
+if (window.H5EXT) {
+	var _ver = parseInt(H5EXT.app('builder'));
+	
+	H5EXT.set('js_www.coolapk.com',"");
+	
+	H5EXT.set('js_k.sogou.com',"H5CSS('#sf_t1,iframe{display: none !important;}');H5DEL('#sf_t1');H5DEL('iframe');");
+	H5EXT.set('js_www.ttmeiju.com',"H5CSS('.headad{display: none !important;}');H5DEL('.headad');");
+	H5EXT.set('js_wap.sogou.com',"H5CSS('#appAdBanner{display: none !important;}');");
+	
+	 H5EXT.set('js_tieba.baidu.com', "TplLoader=function(){};H5CSS('div[lgoinprompt=\\'prompt\\']{display: none !important;} .zan_reply{margin-bottom:0 !important;bottom:0!important;}');"); 
+	 
+	 
+	H5EXT.set('js_m.zsetv.com', "");
+	H5EXT.set('js_dy.zsetv.com', "");
+	
+	//for elm
+    if(H5EXT.get("var_exprjs_v") != H5EXP_JS_VER){
+        H5EXT.set("var_exprjs_v",H5EXP_JS_VER);
+        
+        var js_h5adv = H5EXT.get("txt:js:h5adv");
+        
+        if(js_h5adv.length<10){
+        	js_h5adv = "window.H5ADV=function(url){url=unescape(url);var url0=url+'/';var ls=document.getElementsByTagName('a');var el=null;for(var i=0,l=ls.length;i<l;i++){el=ls[i];var eurl=unescape(el.href);if(eurl==url||eurl==url0){break}else{el=null}};if(!el){ls=document.getElementsByTagName('img');el=null;for(var i=0,l=ls.length;i<l;i++){el=ls[i];var esrc=unescape(el.src);if(esrc==url||esrc==url0){break}else{el=null}}};if(el){var el2=el;var pl=0;while(true){if(el2.id||el2.className){break}else{el2=el2.parentNode;pl++}};if(el2){el=el2;while(true){el2=el2.parentNode;if(!el2||el2.childElementCount>1){break};if(el2.id||el2.className){el=el2}};el2=el;var elk=(el2.id?'#'+el2.id:'.'+el2.className);if(confirm('确定要将元素'+el2.tagName+elk+'过滤吗？')){H5REM(el2);var ht=location.host;var exp=H5EXT.get('txt:js2:'+ht);exp=exp+\"H5CSS('\"+elk+\"{display: none !important}');H5DEL('\"+elk+\"');\";H5EXT.set('txt:js2:'+ht,exp)}}}};";
+        	
+        }
+        
+        var js_h5cpy = H5EXT.get("txt:js:h5cpy");
+        
+        if(js_h5cpy.length<10){
+        	js_h5cpy = "window.H5CPY=function(url){url=unescape(url);var ls=document.getElementsByTagName('a');for(var i=0,l=ls.length;i<l;i++){var el=ls[i];if(unescape(el.href)==url){var txt=el.innerText;H5EXT.cmd('94',txt);H5EXT.cmd('99',txt);break}}};";
+        }
+        
+        
+		
+		var web_func_js = "if (!window.H5CSS) {"
+							+ js_h5cpy + js_h5adv
+							
+							+ "window.H5LOAD= function(fun)  { document.addEventListener('DOMContentLoaded', fun);};"
+                            + "window.H5JS = function(src) { var d = document; var s = d.createElement('script'); s.setAttribute('src', src);  d.head.appendChild(s); };"
+                            + "window.H5CSS = function(code) { var d = document; var s = d.createElement('style'); s.setAttribute('type', 'text/css'); var t = d.createTextNode(code); s.appendChild(t); d.head.appendChild(s); };"
+                           
+                           + "window.H5HID_TAG = function(code){var ls = document.getElementsByTagName(code); for (var i = 0, l = ls.length; i < l; i++) { ls[i].style.display='none';} };"
+                            
+                            + "window.H5REM=function(el){if(el){if(el.remove){el.remove();return true;}else{el.style.display='none';}} return false;};"
+                            + "window.H5DEL_ID = function(code){if (code.indexOf('#') == 0) { var el=document.getElementById(code.substring(1));H5REM(el);}};"
+							+ "window.H5DEL_CLS = function(code){if (code.indexOf('.') == 0) { var ls = document.getElementsByClassName(code.substring(1)); for (var i = 0, l = ls.length; i < l; i++) { if(H5REM(ls[i])){i--; l--; }} }};"
+							+ "window.H5DEL_TAG = function(code){if (code.indexOf('.') < 0 && code.indexOf('#') < 0) { var ls = document.getElementsByTagName(code); for (var i = 0, l = ls.length; i < l; i++) { if(H5REM(ls[i])){ i--; l--;} } }};"
+							+ "window.H5DEL = function(code) { H5DEL_ID(code);H5DEL_CLS(code);H5DEL_TAG(code);};"
+                            + "};";
+    
+		var web_load_js = "if(document.head){H5LOAD(H5_CALL); H5_CALL();}else{  H5LOAD(H5_CALL);}";				
+			
+		    
+	    H5EXT.set("txt:js:funcjs",web_func_js);
+	    H5EXT.set("txt:js:loadjs",web_load_js);
+	    
+	    
+        
+        H5EXT.set('js_m.toutiao.com', "H5CSS('#pageletBottomBanner{display: none !important}');");
+        H5EXT.set('js_36kr.com', "H5DEL('.J_appDownloadWrapper');");
+        H5EXT.set('js_h5.manhua.163.com', "H5DEL('#foot-fixed');");
+        H5EXT.set('js_m.webtoons.com', "H5DEL('#smartAppBanner');H5DEL('.downapp_area');");
+        H5EXT.set('js_www.comico.com.tw', "H5DEL('.banner');H5CSS('#header{margin-top:0;top:0;}');");
+        H5EXT.set('js_m.cnbeta.com', "H5DEL('.cbimage-fixed');");
+
+        H5EXT.set('js_m.u17.com', "H5DEL('#down_load');");
+        H5EXT.set('js_appbook.easou.com', "H5DEL('.easougg');");
+        H5EXT.set('js_m.dmzj.com', "H5DEL('#khdDown');");
+        H5EXT.set('js_m.bumimi.com', "H5DEL('.alert_windows');");
+
+        H5EXT.set('js_www.bilibili.com', "H5CSS('.b-app-dl-wrp{display: none !important}');");
+        H5EXT.set('js_m.le.com', "H5CSS('#j-smartnew{display: none !important}');");
+        H5EXT.set('js_m.v.qq.com', "H5CSS('.mod_app_top_btn{display: none !important}');");
+        H5EXT.set('js_m.baidu.com', "B.onload=function(){};");
+        H5EXT.set('js_tieba.baidu.com', "TplLoader=function(){};H5CSS('div[lgoinprompt=\\'prompt\\']{display: none !important;} .zan_reply{margin-bottom:0 !important;bottom:0!important;}');"); 
+        
+        
+
+        H5EXT.set('js_m.kuaidi100.com', "H5CSS('.copyright-meun{display: none !important}');");
+        H5EXT.set('js_douban.fm', "H5CSS('.big-download,#features,#photo-swiper,#new-version,#properties{display: none !important}');");
+        H5EXT.set('js_m.ximalaya.com', "H5CSS('.qq-dl,.footer2-panel{display: none !important}');");
+        H5EXT.set('js_m.lizhi.fm', "H5CSS('.footer,.download-app,div.download-app + a{display: none !important}');");
+        H5EXT.set('js_m.kaolafm.com', "H5CSS('.top{display: none !important}');");
+        H5EXT.set('js_m.neihanshequ.com', "H5CSS('#appDownload{display: none !important}');");
+        H5EXT.set('js_wap.ithome.com', "H5CSS('.app_recom,.fly_down{display: none !important}');");
+        H5EXT.set('js_3g.v.qq.com', "H5CSS('.mod_app_top_btn{display: none !important}');");
+        H5EXT.set('js_m.budejie.com', "H5CSS('#topBanner{display: none !important}');");
+
+        H5EXT.set('js_w.mail.qq.com', "H5CSS('.top_announce_mobileqq{display: none !important}');");
+        
+        H5EXT.set('js_www.qdaily.com', "H5CSS('.com-download-banner{display: none !important}');"); 
+        H5EXT.set('js_wap.zhiyoo.com', "H5CSS('.footer_app{display: none !important}');"); 
+        H5EXT.set('js_bbs.zhiyoo.com', "H5CSS('.footer_app{display: none !important}');");
+        
+        H5EXT.set('js_m.23wx.com', "H5CSS('.header,.footer{display: none !important}');"); 
+        H5EXT.set('js_m.quledu.com', "H5CSS('.header,.footer{display: none !important}');"); 
+        H5EXT.set('js_m.chinadaily.com.cn', "H5CSS('.zhanwei,#dol2136,#dol2145{display: none !important} header{margin-top:0;top:0;}');H5DEL('#dol2136');H5DEL('#dol2145');");
+
+		
+        H5EXT.set('js_m.2345.com', "H5CSS('#ad-box{display: none !important;}');"); 
+        H5EXT.set('js_www.dy2018.com', "H5CSS('div.bd4l,iframe{display: none !important;}');"); 
+        H5EXT.set('js_www.mp4ba.com', "H5CSS('div.text_center,#cs_right_bottom{display: none !important;}');H5DEL('iframe');H5DEL('#cs_right_bottom')"); 
+        
+        H5EXT.set('js_m.meitulu.com',"H5CSS('#app,.tishi,footer{display: none !important;}');");
+        H5EXT.set('js_bbs.gfan.com',"H5CSS('div.downs{display: none !important;}');");
+        H5EXT.set('js_www.boboporn.net',"H5CSS('iframe,#wrapper div.container:first-child{display: none !important;}');");
+       
+		H5EXT.set('js_www.miui.com',"H5CSS('.app_download{display: none !important;}');");
+		H5EXT.set('js_changba.com',"H5CSS('.logo{display: none !important;}');");
+		H5EXT.set('js_m.dianping.com',"H5CSS('.show_info{display: none !important;}');");
+		
+		H5EXT.set('js_tieba.baidu.com', "TplLoader=function(){};H5CSS('div[lgoinprompt=\\'prompt\\']{display: none !important}');"); 
+		
+		H5EXT.set('js_m.le.com',"H5CSS('#j-daoliu,.cmt_more,footer,.j-bottom-menu{display: none !important;}');H5DEL('#j-smartnew')");
+		H5EXT.set('js_m.tv.sohu.com',"H5CSS('.app-vbox > button,.app-panel,.share-panel,.advertise,.ad-vbox,iframe{display: none !important;}');");
+		
+		H5EXT.set('js_www.6vhao.com',"H5CSS('#a960{display: none !important;}');H5DEL('#a960');");
+		
+		H5EXT.set('js_m.bddyy.cc',"H5CSS('.tbmov-notice{display: none !important;}');");
+		H5EXT.set('js_h5.17k.com',"H5CSS('.ReadAD{display: none !important;}');");
+		H5EXT.set('js_m.manhuacheng.com',"H5CSS('iframe{display: none !important;}');H5DEL('iframe');");
+		H5EXT.set('js_wapbaike.baidu.com', "TplLoader=function(){};H5CSS('div[lgoinprompt=\\'prompt\\']{display: none !important}');"); 
+		
+		
+    }
+    
+    
+    //for src
+	if (H5EXT.get("sys_close_filter") != "1") {
+        var expr_filter = "##"
+        + "|cpro\\.baidustatic\\.com|pos\\.baidu\\.com|entry\\.baidu\\.com\\/rp"
+        + "|dm530.com\\/pic\\/fgr\\/.*?20|\\/AdSource\\/|\\.keytui\\.com\\/|vip\\.9wjc\\.com|ss\\.subo\\.me|vip\\.9wjc\\.com|dm530gd\\.js"
+        + "|bz\\.lyzly\\.com|njs\\.myhx120\\.com|rc\\.jusha\\.com"
+        + "|c1\\.668559\\.com" //hh
+        + "|p\\.tanx\\.com|[^\\w]cpro\\.|\\.googlesyndication\\.com" //eds
+        + "|showjs\\?"//tt
+        + "|njs\\.myhx120\\.com"
+        + "|cdn\\.moogos\\.com" //cnb
+        + "|\\.doubleclick\\.net"
+        + "|\\.liveadvert\\.com"
+        + "|\\d+\\..*?\\.co\\.uk"
+        + "|\\.mystat-in\\.net"
+        + "|\\w+\\.reporo\\.net"
+        + "|\\.voodoo\\.com"
+        + "|\\.axf8\\.net"
+        + "|\\.dynamic\\.dol\\.ru"
+        + "|\\.bitterstrawberry\\.com"
+        + "|\\.r\\.msn\\.com"
+        + "|\\.cqcounter\\.com"
+        + "|\\.rfihub\\.com"
+        + "|click\\.xajrhd\\.com"
+        + "|\\.fwmrm\\.net"
+        + "|\\.hittail\\.com"
+        + "|\\.aitaotu\\.com\\/cpro\\/" //
+        + "|\\.302br\\.net|bs\\.serving-sys\\."
+        + "|\\/sina_sax\\/|111\\.13\\.88\\.47|js\\.tuscdn\\.com|online\\/public\\/(push|loader)\\/.*?\\.js"
+        + "|\\/[\\w]+\\.simba.taobao.com\\/"
+        + "|taobao[\\w]*\\.[\\w]+\\.[\\w]{2,3}\\/"
+        + "|[^\\w](count|acookie|s8|re|ai|pccookie|err|tui|temai|shi|search8|pcookie)\\.taobao\\.com"
+        + "|suez\\.baidu\\.com\\/"
+        + "|lm\\w*\\.admin5\\.com"
+        + "|pic\\.yiipic\\.com\\/js\\/showgg\\.js"
+        + "|61\\.160\\.200\\.223|syndication\\.exoclick\\.com\\/splash.php|clickadu\\.com\\/apu\\.php"
+        + "|s10\\.histats\\.com|adserver\\.juicyads\\.com\\/adshow|geo\\.frtya\\.com|ads\\.exoclick\\.com"
+        + "|light\\/lightAppAdPlugin\\.js"
+        
+        + "|bsch\\.serving-sys\\.com\\/BurstingPipe\\/a.Server|\\/\\/m\\.aty\\.s.hu\\.com"
+        + "|\\/\\/vl.tv\\.admaster\\.com\\.cn|\\d+\\.\\d+\\.\\d+\\.\\d+\\/\\d+\\/\\d+\\/\\d+\\/l.tv-gug\\/"
+        + "|a1\\.itc\\.cn\\/pv\\/js\\/spv|m\\.tv\\.sohu\\.com\\/upload\\/touch\\/rfuv.html"
+        
+        + "|m\\.tonghuacun\\.com\\/js\\/ad\\/|jiaoben\\.tonghuacun\\.com\\/cpro\\/|vip\\.shuma2\\.com\\/m\\/|vip2\\.media8\\.cn\\/js\\/mob\\/bottom\\.js"
+        + "|js\\.users\\.51\\.la|.*?.5jjx.net|.*?\\.cnsjx\\.net/"
+        + "|vip\\.jixing8\\.com|wsx\\.4ggww\\.com"
+        + "|rc\\.juejdkio\\.com"
+        + "|.*?\\.67yes\\.com"
+        + "|\\/jsad\\/.*?\.js"
+        
+        + "|mh1234.com\\/template\\/skin4_\\d+\\/images\\/g_js\\/wap_w_"
+        + "|www\\.6vhao\\.com\\/d\\/"
+        + "|v\\.bumimi\\.com\\/.*?\\.js"
+        + "|m\\.kb20\\.cc\\/js\\/fumeiti.js"
+        + "|www\\.dytt8\\.net\\/js\\d*\\/.*?.js"
+        
+        + "|\\.drwzn\\.com|\\.67yes\\.com|2ac37\\.quledu\\.com"
+        + "|irnvf\\.lu\\.sogou\\.com\\/wap\\/js\\/"
+        
+        
+        
+        + "|\\/\\/vpie\\.net"
+        + "|bdimg\\.share\\.baidu\\.com\\/static\\/js\\/shell|\\.searchbox\\.baidu.com\\/static\\/searchbox\\/openjs"
+        + "|\\/\\/su\\.bdimg\\.com\\/static\\/dspui\\/js\\/.*?\\.js"
+        + "|\\/\\/crs\\.baidu\\.com\\/t.js"
+        
+        + "|\\/\\/img\\.meitulu\\.com\\/js\\/showgg\\.js"
+        + "|\\/\\/s\\.lianmeng\\.360\\.cn\\/so\\/.*?\\.js"
+        + "|\\/\\/vjoz\\.lu.sogou\\.com\\/wap\\/js\\/.*?\\.js"
+        + "|\\/\\/images\\.sohu.com\\/cs\\/jsfile\\/js\\/.*?\\.js"
+        + "|\\/\\/v\\.6dvip\\.com\\/ge\\/"
+        + "|\\/\\/.*?\\.8ox\\.cn\\/pge\\/"
+        + "|\\/\\/.*?\\.ctsywy\\.com\\/page\\/"
+        + "|\\/\\/niu\\.code668\\.com\\/page\\/"
+        + "|\\/\\/vip\\.media8\\.cn\\/js\\/"
+        + "|\\/\\/u592022\\.778669\\.com\\/mediaController"
+        + "|\\/\\/media\\.jointreport-switch\\.com"
+        + "|\\/\\/.*?\\.77power\\.com\\/adscpv\\/"
+        + "|\\/\\/.*?\\.cnsjx\\.net\\/view"
+        + "|\\/\\/.*?\\.qshxc\\.com\\/show"
+        + "|\\/\\/njs\\.myyage\\.com\\/cpv"
+        + "|\\/\\/daima\\.jiduan\\.cc:\\d+\\/meitulu"
+        + "|\\/\\/s\\.272xb\\.com\\/"
+        + "|\\/\\/.*?\\.yiipic\\.com\\/js\\/"
+        + "|\\/\\/.*?\\.myyage.com\\/cpc\\/"
+        + "|\\/\\/.*?\\.mainbx\\.com\\/wangzhai\\/"
+        + "|\\/\\/.*?\\.myyage\\.com\\/cpc\\/"
+        
+        + "|.*?\\.\\d+juhd.com|js\\d+\\.anreson\\.net\\/s\\/|rfv\\.ws7j\\.com/|njs\\.imagicskin\\.com\\/cpv|tt\\.fanbaow\\.com"
+        + "|.*?\\.ufruit\\.net"
+        + "|pagead\\d*\\.googlesyndication\\.com"
+        + "|amfi\\.gou\\.sogou\\.com\\/wapxml"
+        + "|\\.bjctsm\\.com|\\.shfmsw\\.com"
+        + "|mvip\\.zhuba8\\.com\\/js\\/"
+        + "|vip\\.koukou7\\.com\\/js\\/"
+        + "|\\/js\\/ads\\/"
+        
+        
+        
+        + "|\\/\\/(?!192)\\d*\\.\\d+\\.\\d+\\.\\d+:\\d{4}\\/[^\\.]+\\.js";//qq tv 用的是IP地址
+        
+        
+        var u_exp = H5EXT.get("txt:expr:src:filter:user");
+        
+        if(u_exp.length>0){
+            expr_filter = expr_filter+'|'+u_exp;
+        }
+
+	    H5EXT.set('txt:expr:src:filter', expr_filter);
+	    
+	    
+	    var expr_white = "139\\.196\\.166\\.21:8085";
+	    
+	    H5EXT.set('txt:expr:whitelist', expr_white);
+	    
+	    var expr_newtab = "m\\.weibo\\.cn|m\\.smzdm\\.com";
+	    
+	    H5EXT.set('txt:expr:newtab', expr_newtab);
+	    
+	    
+
+    } else {
+	    H5EXT.set('txt:expr:src:filter', "##");
+    }
+
+};

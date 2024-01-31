@@ -1,0 +1,33 @@
+function index_onload_for_ui(){
+	if(H5EXT.get("txt_tool_back") != ''){
+		H5EXT.set("set:btn:bk:txt", H5EXT.get("txt_tool_back")); //0.4.2.50 using
+        H5EXT.set("set:btn:fw:txt", H5EXT.get("txt_tool_forward"));
+        H5EXT.set("set:btn:h5:txt", H5EXT.get("txt_tool_home"));
+        H5EXT.set("set:btn:tabs:txt", H5EXT.get("txt_tool_win"));
+	}
+	
+	H5EXT.set('set:'+H5EXT.cmd('96','tool:visible:h5.noear.org/more.htm'),"");
+	H5EXT.set('set:'+H5EXT.cmd('96','tool:immersive:h5.noear.org'),"");
+	
+	
+	if(_ver<36){
+        if(confirm('你的版本实在太旧了，升个级吧？')){
+        	location.href = "/readme.htm";
+        	return;
+    	}
+    }
+   
+	var _os = H5EXT.app('os');
+   
+	if(_ver <66 && _os==2){
+        $('#left').html('<a href="readme.htm">最新版本：0.4.2.66（点击升级）</a>');
+    }else{
+        var slg = H5EXT.get("app_slogan");
+        if(slg.length==0)
+        	$('#left').text('保护地球！从不乱扔垃圾做起...');//保护地球！从不乱扔垃圾做起...//请做个文明的人...//如果底部有广告（那是运营商DNS劫持）//
+        else
+        	$('#left').html(slg);
+        
+    }
+}
+

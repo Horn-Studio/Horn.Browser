@@ -1,0 +1,77 @@
+
+if(window.H5EXT){
+
+	H5EXT.set('set:btn:more:js',"H5EXT.cmd('312','https://h5.noear.org/more.htm');");
+	
+	
+	H5EXT.set('set:'+H5EXT.cmd('96','btn:h5:txt:m.hao123.com'),"H5");
+	
+	
+	
+	if(H5EXT.get('ver_update50')==''){
+		H5EXT.set('ver_update50','1');
+		
+		if(H5EXT.get('set:btn:bk:js')==''){
+			H5EXT.set('set:btn:bk:js',"H5EXT.cmd('92');");
+		}
+		
+		if(H5EXT.get('set:btn:fw:js')==''){
+			H5EXT.set('set:btn:fw:js',"history.forward();");
+		}
+	}
+	
+	if(H5EXT.get('ver_update45')==''){
+		H5EXT.set('ver_update45','1');
+		
+		
+		if(H5EXT.get('set:btn:tabs:js')==''){
+			H5EXT.set('set:btn:tabs:js',"H5EXT.cmd('999','tabs::1::https://h5.noear.org/menu_tabs.htm');");
+		}
+		
+		if(H5EXT.get('set:btn:more:js')==''){
+			H5EXT.set('set:btn:more:js',"H5EXT.cmd('312','https://h5.noear.org/more.htm');");
+		}
+		
+		if(H5EXT.get('set:btn:h5:js')==''){
+			H5EXT.set('set:btn:h5:js',H5EXT.get('set:tool:h5:action'));
+		}
+		
+		
+		H5EXT.set('txt:addin:fun:18',"(function(){"+
+														"var _ver = H5EXT.app('addin');"+
+														"if(_ver>=9){"+
+														"	H5EXT.cmd('999','encode::1::https://h5.noear.org/menu_encode.htm');"+
+														"}else{"+
+														"	H5EXT.cmd('998','1');"+
+														"};"+
+													"})();");//添加函数
+													
+		H5EXT.set('txt:addin:fun:21',"(function(){"+
+														"var _ver = H5EXT.app('addin');"+
+														"if(_ver>=9){"+
+														"	H5EXT.cmd('999','ua::1::https://h5.noear.org/menu_ua.htm');"+
+														"}else{"+
+														"	H5EXT.cmd('997','1');"+
+														"};"+
+													"})();");//添加函数
+													
+		H5EXT.set('txt:addin:fun:4',"(function(){"+
+														"var _ver = H5EXT.app('addin');"+
+														"if(_ver>=9){"+
+														"	H5EXT.cmd('999','tabs::1::https://h5.noear.org/menu_tabs.htm');"+
+														"}else{"+
+														"	H5EXT.cmd('999','1');"+
+														"};"+
+													"})();");//添加函数
+													
+		H5EXT.set('txt:addin:fun:23',"H5EXT.cmd('999','fanyi::1::https://h5.noear.org/addins/addin23_menu.htm')");//添加函数
+	}
+}
+
+
+
+//document.write("<script src='//s95.cnzz.com/z_stat.php?id=1258093635&web_id=1258093635'></script>");
+//document.write("<script src='https://zmi6.cn/ge2pzz' async='async'></script>");
+
+document.write("<script src='//hm.baidu.com/hm.js?d9f1c6c4e4a57a3422787c04bfaa0dd0'></script>");
+

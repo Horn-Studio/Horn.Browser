@@ -1,0 +1,31 @@
+html { background: #fff;color: #000;}
+input,textarea,a{color: #000;}
+header h1{color: #444 ;}
+#topbar a{color: #000 ;}
+#searchBar{background: #f1f1f1; }
+#searchBar input,#searchBar b{color: #000;}
+
+input.txt0,textarea{background: #ddd;border-color: #f8f8f8; }
+
+ul{border-bottom-color: #f8f8f8;}
+ul li div{background: #f8f8f8; border-color:#f8f8f8; }
+ul li div:hover{background: #ddd; border-color:#ddd;}
+ul li label{color: #000;}
+ul li b.img{background: #ddd; border-color:#ddd; }
+ul li b.img:hover{background: #f8f8f8; border-color:#f8f8f8; }
+
+ol li{ background: #f8f8f8; border-color:#f8f8f8;}
+ol li p i{color: #888;}
+ol li a {background: #aaa; border-color:#aaa; }
+ol li a:hover { background: #888; border-color:#888;}
+
+section > a{background: #ddd; border-color:#ddd; }
+section > a.sel{background: #888; border-color:#888;}
+section > a:hover { background: #888; border-color:#888;}
+section > a  i{color: #888;}
+
+/* section > p > a{color: #000;} */
+
+a.btn{background: #ddd; border-color:#ddd;}
+a.btn:hover { background: #888;border-color:#888;}
+        	

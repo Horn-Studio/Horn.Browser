@@ -1,0 +1,64 @@
+(function(){
+	if(window.H5EXT){
+		if(H5EXT.get('lang_38') == ''){
+			H5EXT.set('lang_38','清空');
+		}
+		
+		if(H5EXT.get('var_update50_1') == ''){
+			H5EXT.set('var_update50_1','1');
+		}else{
+			return;
+		}
+		
+		var _lng = H5EXT.get('lang');
+		
+		if(_lng == '' || _lng == 'zh'){
+			H5EXT.set('lang','zh');
+			H5EXT.set('lang_0','H5浏览器');
+			H5EXT.set('lang_1','请再试一次');
+			H5EXT.set('lang_2','再按一次返回退出');
+			H5EXT.set('lang_3','操作成功');
+			H5EXT.set('lang_4','无标题');
+			H5EXT.set('lang_5','已离线加载');
+			H5EXT.set('lang_6','发送邮件');
+			H5EXT.set('lang_7','开始截图...');
+			H5EXT.set('lang_8','截图失败');
+			H5EXT.set('lang_9','已保存到相册');
+			H5EXT.set('lang_10','账号');
+			H5EXT.set('lang_11','密码');
+			H5EXT.set('lang_12','认证提示');
+			H5EXT.set('lang_13','确定');
+			H5EXT.set('lang_14','取消');
+			H5EXT.set('lang_15','分享自#H5浏览器#');
+			H5EXT.set('lang_16','分享到');
+			H5EXT.set('lang_17','下载提示');
+			H5EXT.set('lang_18','下载');
+			H5EXT.set('lang_19','复制链接');
+			
+			H5EXT.set('lang_20','取消');
+			
+			H5EXT.set('lang_21','已复制到剪切板');
+			H5EXT.set('lang_22','下载出错');
+			
+			H5EXT.set('lang_23','设置');
+			H5EXT.set('lang_24','关于');
+			H5EXT.set('lang_25','扩展插件');
+			H5EXT.set('lang_26','轻应用');
+			H5EXT.set('lang_27','天气预报');
+			H5EXT.set('lang_28','网站导航');	
+			
+			H5EXT.set('lang_29','黑色的云');
+			H5EXT.set('lang_30','主题定制');
+		
+			H5EXT.set('lang_31','下载图片到相册');
+			H5EXT.set('lang_32','复制文本');
+			H5EXT.set('lang_33','长按空白处可再现操作按钮');
+			H5EXT.set('lang_34','使用新窗口打开');
+			H5EXT.set('lang_35','使用新窗口在后台打开');
+			H5EXT.set('lang_36','标识为广告');
+		}
+		
+		
+		
+	}
+})();
