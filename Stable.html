@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Horn.Browser起始页</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src *.noear.org *.cnzz.com &#39;unsafe-inline&#39; &#39;unsafe-eval&#39;;">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="Horn.Browser主页">
+    <meta name="description" content="极简体验">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="./Browser起始页_files/base.css">
+    <style>
+	    #searchBar { margin: 5px; overflow: hidden;}
+		#searchBar table{height: 40px;width: 100%;}
+		#searchBar div{margin: 0 5px 0 5px;}
+		#searchBar b{display: inline-block; width: 40px;line-height: 40px;height: 40px; text-align: center;overflow: hidden;}
+	    #searchBar input { border: none; height: 40px; width: calc(100% - 8px);padding: 0 4px 0 4px; font-size: medium; background-color: transparent; }
+	    #searchBar input:focus { border: none; outline:none; }
+	
+		.scann{width: 36px; height: 36px;margin-top: 4px;float: left;}
+    </style>
+    <script src="./Browser起始页_files/lang.js.下载"></script>
+    <script src="./Browser起始页_files/jslib.js.下载"></script>
+    <script src="./Browser起始页_files/index.js.下载"></script>
+    <script>
+
+        var search_e_def = "https://m.bing.com/search?q=%s";
+        //var search_e_def = "https://m.baidu.com/s?wd=%s";
+	    var search_e_url = search_e_def;
+	    
+	    function openUrl(url){
+		    if(window.H5EXT){
+			    var _ver = parseInt(H5EXT.app('builder'));
+			    if(_ver>34){
+				    H5EXT.cmd('98',url);
+				    return;
+			    }
+			}
+			
+			window.open(url);
+	    };
+	    
+	    function search_click() {
+	        var key = document.getElementById('key').value.trim();
+	        if (key) {
+		        if(key.startsWith('@@')){
+			        openUrl('https://h5.noear.org/share.aspx?key=' + key.substr(2));
+		        }else{
+			        if (/(.+?\.)+([a-zA-Z]+|中国|公司|世界)|(\d+\.){3}\d+/.test(key) && key.indexOf(' ')<0) {
+		                if (key.indexOf('://') > 0) {
+		                    openUrl(key);
+		                } else {
+		                    openUrl('http://' + key);
+		                }
+	
+		            } else {
+		                var url = search_e_url.replace('%s', key);
+		                openUrl(url);
+		            }
+		        }
+	        }
+	    };
+
+	    function search_onkeyup(obj) {
+	        if (event.keyCode == 13) {
+	            search_click();
+	        }
+	    };
+
+	    function fav_load() {
+		    var jF = $('#user_favs');
+	        jF.html("");
+	        
+		    if(H5EXT.get('user_favs_hide')=='1'){
+			    return;
+		    }
+
+	        var list = JSON.parse(H5EXT.cmd('102'));
+
+	        for (var i = 0, len = list.length; i < len; i++) {
+	            var item = list[i];
+	            var icon = (item.n.length > 0 ? item.n.substring(0, 1) : 'H');
+	            var temp = "<li><div><a href='" + item.u + "' target='_blank'><b class='img'>" + icon + "</b><label>" + item.n + "</label></a></div></li>";
+
+	            jF.append(temp);
+	        }
+	    };
+
+	    function engine_load() {
+	        var val = H5EXT.get("sys_search_engine_url");
+	        if (val.length > 6) {
+	            search_e_url = val;
+	        } else {
+		        H5EXT.set('sys_search_engine_url',search_e_def);
+	            search_e_url = search_e_def;
+	        }
+	    };
+	    
+	    function sitenav_load(){
+		    var nurl = H5EXT.get("sys_site_nav_url");
+            if(nurl.length<8){
+                nurl="https://m.hao123.com/?union=1&from=1012554r&tn=ops1012554r";
+            }
+            $('#site_nav').attr("href",nurl);
+	    };
+	    
+	    function sysfavs_load(){
+		    if(H5EXT.get("sys_favs_hide")=='1'){
+				$('#sys_tabs').hide();    
+		    }else{
+			    $('#sys_tabs').show();  
+		    }
+		    
+	    }
+
+		window._exec=0;
+	    function H5_onResume() {
+		    if(window._exec==1){
+		    	return;
+		    }else{
+			    window._exec=1;
+		    }
+		    
+		    if(H5EXT.get('var_reload_home')=='1'){
+				H5EXT.set('var_reload_home','');
+				location.reload();
+				return;    
+			}
+			
+			var _ver = parseInt(H5EXT.app('builder'));
+			
+			loadLang('lang_23');
+			loadLang('lang_25');
+			loadLang('lang_26');
+			loadLang('lang_27');
+			loadLang('lang_28');
+			loadLang('lang_29');
+			loadLang('lang_30');
+			
+			
+            var tabs = H5EXT.get("app_tabs_user");
+			if(tabs.length>0){
+				$('#user_tabs').html(tabs);
+			}
+			
+			if(H5EXT.get('sys_hide_search') == 1){
+				$('#searchBar table').hide();
+			}
+			
+	        fav_load();
+	        engine_load();
+	        sitenav_load();
+	        sysfavs_load();
+	        
+	        if(_ver>=31){
+            	var adi = H5EXT.get('txt:addin:fun:scann');
+				if(adi.length>10){
+					$('#goBtn').html('<img src="qr.png" class="scann" />').unbind('click').click(function(){
+						eval(adi);
+					});
+				}else{
+					$('#goBtn').html('Go').unbind('click').click(search_click);
+				}
+        	}
+	       
+            
+            if(H5EXT.get('ver_help_read') == '1'){
+            	$('#help').hide();
+            }else{
+	            $('#help').show();
+            }
+
+			window._exec=0;
+	    };
+	    
+	    window.activity_onResume = H5_onResume;
+	    
+	    
+	    function doc_load(){
+		    if(window.H5EXT){
+			    
+			  	H5_onResume();
+			  	
+				index_onload_for_ui();
+				
+				
+	        }else{
+	            $(function(){
+		            $('#app').show();
+		            $('#help').hide();
+	            });
+	            
+	            $('#goBtn').html('Go').unbind('click').click(search_click);
+	        }
+	    }    
+    </script>
+    <script src="./Browser起始页_files/expr.js.下载"></script>
+    <script src="./Browser起始页_files/ucss.js.下载"></script><link id="h5_skin_link" rel="stylesheet" type="text/css" href="./Browser起始页_files/1.css">
+</head>
+<body class="home">
+    <header>
+        <div id="topbar">
+            <span id="left">@2024 Horn.Studio 保留所有权利</span>
+            <span id="right">版本:<a  id="lang_23">2.0.1</a></span>
+        </div>
+        <h1>号角浏览器 主页</h1>
+        <h4>新年快乐！</h4>
+        <script>
+	    if(window.H5EXT){
+			var name = H5EXT.get("app_title");
+			if(name.length==0){
+			   name = H5EXT.app("code");
+			}
+			if(name.length>0){
+			   $('h1').html(name);
+			}
+			
+			var exp1 = H5EXT.get("app_home_wallpaper_user");
+			if(exp1.length>10){
+				$('head').append("<style id='h5_wallpaper_user' type='text/css'>"+exp1+"</style>");
+			}
+	    }
+        </script>
+        <div id="searchBar">
+	        <table width="100%">
+		        <tbody><tr>
+			        <td><input type="text" id="key" placeholder="输入网址或内容" onkeyup="search_onkeyup(this)"></td>
+			        <td width="40px"><b id="goBtn">→</b></td>
+		        </tr>
+	        </tbody></table>            
+        </div>
+    </header>
+    <section>
+        <ul id="sys_tabs">
+            
+            
+            <li>
+                <div>
+                    <a href="file:///C:/Program%20Files/Horn.Browser/%E7%BD%91%E5%9D%80%E5%A4%A7%E5%85%A8.html" target="_blank">
+                        <b class="img">🌏</b>
+                        <label id="lang_27">网址大全</label>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <a href="file:///C:/Program%20Files/Horn.Browser/Light/list.html" target="_blank">
+                        <b class="img">🎈</b>
+                        <label id="lang_27">轻应用列表</label>
+                    </a>
+                </div>
+            </li>
+       
+            
+                   </ul>
+        <ul id="user_tabs"></ul>
+        <ul id="user_favs"></ul>
+    </section>
+	<script>
+		doc_load();
+	</script>
+   
+    <footer id="help" style="display: none;">
+	    <a href="https://h5.noear.org/operate.htm">使用攻略</a>
+    </footer>
+    <footer id="app" style="">
+        <a href="https://hornbrowser.wodavip.com/pages/lightapp" target="_blank">下载Light.App</a>
+    </footer>
+    
+    <div style="visibility: hidden"><script src="./Browser起始页_files/stat.js.下载"></script><script src="./Browser起始页_files/z_stat.php"></script></div>
+
+
+</body></html>
